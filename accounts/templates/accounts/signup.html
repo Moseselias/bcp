@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Staff Sign Up</title>
+  <link rel="stylesheet" href="{% static 'admin-styles.css' %}">
+  <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/styles.css">
+</head>
+<body>
+  <div class="login-card">
+    <h1>Register for Staff Access</h1>
+    {% if messages %}
+      {% for msg in messages %}
+        <div class="alert">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account?
+      <a href="{% url 'accounts:login' %}">Login here</a>.
+    </p>
+  </div>
+</body>
+</html>

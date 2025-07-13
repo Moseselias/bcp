@@ -1,0 +1,135 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Fasiku Adejare">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/favicon.png" type="image/x-icon">
+
+    <title>Admin Login - BillCharlesltd.com</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/admin-styles.css' %}">
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/admin-styles.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar admin-navbar">
+      <div class="navbar-container">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <div class="navbar-logo admin-logo">
+            <img src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/BC-logo.png" alt="BillCharlesltd Logo" class="logo-icon" />
+            <span class="logo-text">BillCharlesltd</span>
+          </div>
+
+          <!-- Account Icon -->
+          <div class="navbar-account">
+            <a href="{% url 'messaging:home' %}" class="account-btn admin-account-btn">
+              <i data-lucide="arrow-left" class="account-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <ul id="django-messages" style="display:none;">
+      {% for msg in messages %}
+        <li class="django-message" data-level="{{ msg.tags }}">
+          {{ msg }}
+        </li>
+      {% endfor %}
+    </ul>
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="login-header">
+            <style>
+              .login-icon {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 16px;
+                overflow: visible; /* helps prevent clipping */
+              }
+              .lock-icon {
+                stroke-width: 2.2;
+              }
+              .login-icon .lock-icon {
+                width: 30px;
+                height: 30px;
+                color: #f5761a;
+                background: rgba(245, 118, 26, 0.1);
+                padding: 15px;
+                border-radius: 25%;
+                box-sizing: content-box;
+              }
+            </style>
+            <div class="login-icon">
+              <i data-lucide="lock" class="lock-icon"></i>
+            </div>
+            <h1 class="login-title">Admin Panel</h1>
+            <p class="login-subtitle">Sign in to access the admin dashboard</p>
+          </div>
+          <form class="login-form" method="post" action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                class="form-input"
+                required
+              />
+            </div>
+            <button type="submit" class="login-btn">
+              <i data-lucide="log-in" class="login-btn-icon"></i>
+              Sign In
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <h3>BillCharlesltd.com</h3>
+        <p class="footer-subtitle" style="color: #fff;">
+          Professional Automotive Services: Import • Export • Sales • Maintenance — Driven by Trust, Defined by Excellence.
+        </p>
+        <p class="footer-copyright" style="color: #E8E8E8;">
+          © 2025 BillCharlesltd. All rights reserved. | This website represents the official online presence of Bill Charles Limited.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/lucide.js"></script>
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/admin-script.js"></script>
+    <script src="{% static 'js/admin-script.js' %}"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
