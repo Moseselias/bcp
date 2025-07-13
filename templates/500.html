@@ -1,0 +1,43 @@
+{% extends 'base_no_head.html' %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+    <!-- Main Content -->
+    <main class="error-main">
+      <div class="error-container">
+        <div class="error-content">
+          <div class="error-icon">
+            <i data-lucide="server-cog" class="error-icon-svg"></i>
+          </div>
+          <h1 class="error-title">500</h1>
+          <h2 class="error-subtitle">Internal Server Error</h2>
+          <p class="error-description">
+            Something went wrong on our end. We're working to fix the problem — please try again later or return to the homepage.</p>
+          <div class="error-actions">
+            <a href="{% url 'messaging:home' %}" class="btn btn-primary error-btn">
+              <i data-lucide="home" class="btn-icon"></i>
+              Go to Homepage
+            </a>
+            <button
+              onclick="history.back()"
+              class="btn btn-secondary error-btn"
+            >
+              <i data-lucide="arrow-left" class="btn-icon"></i>
+              Go Back
+            </button>
+          </div>
+          <div class="error-suggestions">
+            <h3>You might be looking for:</h3>
+            <ul class="error-links">
+              <li><a href="{% url 'messaging:home' %}">Homepage</a></li>
+              <li><a href="{% url 'messaging:home' %}#contact">Contact Us</a></li>
+              <li><a href="{% url 'messages:message_list' %}">Admin Login</a></li>
+              <!-- <li><a href="register.html">Create Account</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+{% endblock %}

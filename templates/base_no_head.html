@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="author" content="Fasiku Adejare">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/favicon.png" type="image/x-icon">
+
+	<title>{% block title %}{% endblock %} BillCharlesLtd</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/admin-styles2.css">
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/styles2.css">
+    <link rel="stylesheet" href="{% static 'css/admin-styles2.css' %}" onerror="this.onerror=null;this.href='https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/admin-styles2.css';">
+    <link rel="stylesheet" href="{% static 'css/styles2.css' %}" onerror="this.onerror=null;this.href='https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/styles2.css';">
+</head>
+<body>
+    
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <h3>BillCharlesltd.com</h3>
+        <p class="footer-subtitle">
+          Professional Automotive Services - Import, Export, Sales & Maintenance
+        </p>
+        <p class="footer-copyright">
+          © 2024 BillCharlesltd. All rights reserved. | This website serves as
+          a business registration requirement.
+        </p>
+      </div>
+    </footer>
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/lucide.js"></script>
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/script2.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="{% static 'js/script2.js' %}"></script>
+</body>
+</html>

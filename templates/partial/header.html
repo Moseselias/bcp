@@ -1,0 +1,33 @@
+{% load static %}
+  <!-- Navbar -->
+    <nav id="navbar" class="navbar admin-navbar">
+      <div class="navbar-container">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <div class="navbar-logo admin-logo">
+            <img src="{% static 'images/BC-logo.png' %}" alt="BillCharlesltd Logo" class="logo-icon" onerror="this.onerror=null; this.src='https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/BC-logo.png';"/>
+            <span class="logo-text">BillCharlesltd</span>
+          </div>
+
+          <!-- Account Icon -->
+          <div class="navbar-account">
+            <a href="{% url 'messaging:home' %}" class="account-btn admin-account-btn">
+              <!-- <i data-lucide="arrow-left" class="account-icon"></i> -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="account-icon lucide lucide-arrow-left-icon lucide-arrow-left">
+                <path d="m12 19-7-7 7-7"/>
+                <path d="M19 12H5"/>
+              </svg>
+              <!-- <img src="{% static 'icons/arrow-left.svg' %}" alt="Back" class="account-icon icon arrow-icon" /> -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <ul id="django-messages" style="display:none;">
+      {% for msg in messages %}
+        <li class="django-message" data-level="{{ msg.tags }}">
+          {{ msg }}
+        </li>
+      {% endfor %}
+    </ul>

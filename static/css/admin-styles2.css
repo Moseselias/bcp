@@ -1,0 +1,953 @@
+/* Import base styles */
+@import url("styles.css");
+
+/* Admin-specific overrides and styles */
+
+/* Admin Navbar */
+.admin-navbar {
+  background-color: rgba(245, 118, 26, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-logo {
+  color: white !important;
+}
+
+.admin-account-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.admin-account-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Admin Main Layout */
+.admin-main {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 144px);
+  padding: 40px 20px;
+}
+
+.login-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.login-icon .lock-icon {
+  width: 32px;
+  height: 32px;
+  color: #f5761a;
+  background: rgba(245, 118, 26, 0.1);
+  padding: 12px;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+.login-title {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+  letter-spacing: -0.025em;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-input {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  background: white;
+  height: 44px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #f5761a;
+  box-shadow: 0 0 0 3px rgba(245, 118, 26, 0.1);
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f5761a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  height: 44px;
+  font-size: 14px;
+}
+
+.login-btn:hover {
+  background-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+.login-btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Dashboard Styles */
+.dashboard-main {
+  padding: 96px 0 80px;
+}
+
+.dashboard-header {
+  margin-bottom: 32px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.header-icon {
+  background: rgba(245, 118, 26, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.title-icon {
+  width: 24px;
+  height: 24px;
+  color: #f5761a;
+}
+
+.page-title {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.035em;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* Dashboard Card */
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  padding: 24px 24px 0;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.card-icon {
+  width: 20px;
+  height: 20px;
+  color: #f5761a;
+}
+
+.card-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  padding-bottom: 24px;
+}
+
+.card-content {
+  padding: 0 24px 24px;
+}
+
+/* Messages List */
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.message-item:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.message-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 16px;
+}
+
+.message-status {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.message-status.new {
+  background-color: rgba(245, 118, 26, 0.1);
+  color: #ea580c;
+}
+
+.message-status.read {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.message-date {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.message-preview {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 400px;
+}
+
+.message-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.view-btn {
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+.view-btn:hover {
+  background-color: #eff6ff;
+}
+
+.delete-btn {
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+.delete-btn:hover {
+  background-color: #fef2f2;
+}
+
+.action-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Show All Section */
+.show-all-section {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.show-all-btn {
+  padding: 8px 20px;
+  border: 1px solid rgba(245, 118, 26, 0.3);
+  border-radius: 6px;
+  background: white;
+  color: #f5761a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-weight: 500;
+}
+
+.show-all-btn:hover {
+  background-color: rgba(245, 118, 26, 0.05);
+}
+
+/* Message Detail Page */
+.detail-main {
+  padding: 96px 0 80px;
+}
+
+.detail-header {
+  margin-bottom: 32px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 16px;
+  transition: color 0.15s ease;
+}
+
+.back-btn:hover {
+  color: #374151;
+}
+
+.back-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.detail-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.detail-card-header {
+  padding: 24px;
+  border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.message-info h2.sender-name {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.message-timestamp {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.detail-card-content {
+  padding: 24px;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+}
+
+.message-section {
+  border-top: 1px solid #f3f4f6;
+  padding-top: 24px;
+}
+
+.message-label {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.message-content {
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 8px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.message-content p {
+  margin-bottom: 12px;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Reply Section */
+.reply-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.reply-icon {
+  width: 20px;
+  height: 20px;
+  color: #f5761a;
+}
+
+.reply-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.reply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reply-textarea {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 160px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.reply-textarea:focus {
+  outline: none;
+  border-color: #f5761a;
+  box-shadow: 0 0 0 3px rgba(245, 118, 26, 0.1);
+}
+
+.reply-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f5761a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  align-self: flex-start;
+}
+
+.reply-btn:hover {
+  background-color: #ea580c;
+}
+
+.reply-btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Sidebar */
+.detail-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.sidebar-title {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.sidebar-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.delete-message-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.delete-message-btn:hover {
+  background-color: #fef2f2;
+}
+
+.delete-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.info-label {
+  color: #6b7280;
+}
+
+.info-value {
+  font-weight: 500;
+  color: #111827;
+  text-transform: capitalize;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-main {
+    padding-top: 80px;
+  }
+
+  .dashboard-main,
+  .detail-main {
+    padding: 80px 0 60px;
+  }
+
+  .message-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .message-actions {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .message-preview {
+    max-width: none;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .login-card {
+    padding: 32px 24px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 24px 20px;
+    margin: 0 16px;
+  }
+
+  .dashboard-card,
+  .detail-card,
+  .sidebar-card {
+    margin: 0 16px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .message-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
+
+/* Register Page Specific Styles */
+.register-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.register-footer {
+  margin-top: 24px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.register-link {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.login-link {
+  color: #f5761a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.login-link:hover {
+  color: #ea580c;
+  text-decoration: underline;
+}
+
+/* 404 Error Page Styles */
+.error-main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  padding-top: 64px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.error-content {
+  text-align: center;
+  background: white;
+  padding: 60px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.error-icon {
+  margin-bottom: 24px;
+}
+
+.error-icon-svg {
+  width: 80px;
+  height: 80px;
+  color: #f5761a;
+  opacity: 0.8;
+}
+
+.error-title {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 120px;
+  font-weight: 800;
+  color: #f5761a;
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -0.05em;
+  text-shadow: 0 4px 8px rgba(245, 118, 26, 0.1);
+}
+
+.error-subtitle {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+}
+
+.error-description {
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.error-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.error-suggestions {
+  border-top: 1px solid #f3f4f6;
+  padding-top: 32px;
+}
+
+.error-suggestions h3 {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.error-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.error-links li {
+  margin: 0;
+}
+
+.error-links a {
+  color: #f5761a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.error-links a:hover {
+  color: #ea580c;
+  background-color: rgba(245, 118, 26, 0.1);
+}
+
+/* Responsive adjustments for new pages */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 32px 24px;
+  }
+
+  .error-content {
+    padding: 40px 24px;
+  }
+
+  .error-title {
+    font-size: 80px;
+  }
+
+  .error-subtitle {
+    font-size: 24px;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 32px 24px;
+    margin: 0 16px;
+  }
+
+  .error-container {
+    padding: 0 16px;
+  }
+
+  .error-content {
+    padding: 32px 20px;
+  }
+
+  .error-title {
+    font-size: 64px;
+  }
+
+  .error-subtitle {
+    font-size: 20px;
+  }
+}

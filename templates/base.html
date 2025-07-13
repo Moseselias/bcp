@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="UTF-8">
+    <meta name="author" content="Fasiku Adejare">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/favicon.png" type="image/x-icon">
+
+	<title>{% block title %}{% endblock %} BillCharlesLtd</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/admin-styles.css' %}">
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/admin-styles.css">
+    
+</head>
+<body>
+    {% include 'partial/header.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'partial/footer.html' %}
+</body>
+</html>
