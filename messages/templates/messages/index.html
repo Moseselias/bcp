@@ -1,0 +1,332 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Fasiku Adejare">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/favicon.png" type="image/x-icon">
+
+    <title>Homepage - BillCharlesltd.com</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <div class="navbar-logo">
+            <img src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/BC-logo.png" alt="BillCharlesltd Logo" class="logo-icon" />
+            <span class="logo-text">BillCharlesltd</span>
+          </div>
+
+          <!-- Account Icon -->
+          <div class="navbar-account">
+            <a href="{% url 'accounts:login' %}" class="account-btn">
+              <i data-lucide="user" class="account-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <ul id="django-messages" style="display:none;">
+      {% for msg in messages %}
+        <li
+          class="django-message"
+          data-level="{{ msg.tags }}"
+        >{{ msg }}</li>
+      {% endfor %}
+    </ul> -->
+
+    <!-- Hero Section -->
+    <style> 
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* background-image: url("{% static 'images/home_bg-min.jpeg' %}"); */
+      background-image: url("https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/home_bg-min.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      color: rgba(245, 166, 35, 1);
+      transition: transform 0.1s ease-out;
+    }
+    </style>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1>BillCharlesltd.com</h1>
+        <p>
+          Professional Automotive Services - Import, Export, Sales & Maintenance
+        </p>
+        <div class="badges">
+          <span class="badge">
+            <i data-lucide="globe"></i>
+            Global Import/Export
+          </span>
+          <span class="badge">
+            <i data-lucide="car"></i>
+            Car Sales
+          </span>
+          <span class="badge">
+            <i data-lucide="wrench"></i>
+            Maintenance Services
+          </span>
+        </div>
+        <button class="btn btn-primary" onclick="scrollToContact()">
+          Get in Touch
+        </button>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Services</h2>
+          <p>Comprehensive automotive solutions for all your vehicle needs</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div
+              class="service-image"
+              style="
+                background-image: url(&quot;https://images.pexels.com/photos/6169056/pexels-photo-6169056.jpeg&quot;);
+              "
+            ></div>
+            <i data-lucide="ship" class="service-icon ship-icon"></i>
+            <h3>Import & Export</h3>
+            <p>
+              Global vehicle import and export services with comprehensive
+              logistics support and documentation handling.
+            </p>
+          </div>
+          <div class="service-card">
+            <div
+              class="service-image"
+              style="
+                background-image: url(&quot;https://images.pexels.com/photos/7144177/pexels-photo-7144177.jpeg&quot;);
+              "
+            ></div>
+            <i data-lucide="car" class="service-icon car-icon"></i>
+            <h3>Car Sales</h3>
+            <p>
+              Quality pre-owned and new vehicle sales with transparent pricing
+              and comprehensive vehicle history reports.
+            </p>
+          </div>
+          <div class="service-card">
+            <div
+              class="service-image"
+              style="
+                background-image: url(&quot;https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg&quot;);
+              "
+            ></div>
+            <i data-lucide="wrench" class="service-icon wrench-icon"></i>
+            <h3>Maintenance Services</h3>
+            <p>
+              Professional automotive maintenance and repair services performed
+              by certified technicians using quality parts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="container">
+        <h2>About BillCharlesltd</h2>
+        <div class="about-grid">
+          <div class="about-item">
+            <i data-lucide="users" class="about-icon users-icon"></i>
+            <h3>Professional Team</h3>
+            <p>Experienced professionals dedicated to automotive excellence</p>
+          </div>
+          <div class="about-item">
+            <i data-lucide="globe" class="about-icon globe-icon"></i>
+            <h3>Global Reach</h3>
+            <p>
+              International import/export capabilities across multiple markets
+            </p>
+          </div>
+          <div class="about-item">
+            <i data-lucide="award" class="about-icon award-icon"></i>
+            <h3>Quality Assurance</h3>
+            <p>
+              Committed to delivering exceptional service and quality vehicles
+            </p>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>
+            BillCharlesltd is a professional automotive company specializing in
+            comprehensive vehicle services. Our expertise spans international
+            car import and export operations, quality vehicle sales, and
+            professional maintenance services. We pride ourselves on delivering
+            exceptional customer service and maintaining the highest standards
+            of professionalism in all our business operations.
+          </p>
+          <p>
+            Backed by a global network and a skilled team, we deliver seamless
+            automotive solutions tailored to meet the diverse needs of our
+            clients in today's dynamic marketplace.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>Get in touch for all your automotive needs</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-card">
+              <h3>Get In Touch</h3>
+              <p>Contact us for service inquiries or appointments</p>
+              <div class="contact-item" style="margin-top: -15px;">
+                <i data-lucide="phone" class="contact-icon"></i>
+                <a href="tel:+2348080211353" style="text-decoration: none;"><span>+234 (808) 021-1353</span></a>
+              </div>
+              <div class="contact-item" style="margin-top: -15px;">
+                <i data-lucide="mail" class="contact-icon"></i>
+                <a href="mailto:info@billcharlesltd.com" style="text-decoration: none;"><span>info@billcharlesltd.com</span></a>
+              </div>
+              <!-- <div class="contact-item">
+                <i data-lucide="map-pin" class="contact-icon"></i>
+                <span>123 Business District, Metropolitan City, State 12345</span>
+              </div> -->
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="contact-card faq-card">
+              <h3>FAQ</h3>
+              <p>Frequently asked questions about our services</p>
+              <div class="accordion">
+                <div class="accordion-item">
+                  <div
+                    class="accordion-trigger"
+                    onclick="toggleAccordion(this)"
+                  >
+                    <span
+                      >What types of vehicles do you import and export?</span
+                    >
+                    <i data-lucide="plus" class="accordion-icon"></i>
+                  </div>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      We handle import and export of all vehicle types including
+                      passenger cars, luxury vehicles, commercial trucks,
+                      motorcycles, and specialty vehicles. Our team has
+                      experience with global shipping regulations and
+                      documentation requirements.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-trigger" onclick="toggleAccordion(this)">
+                    <span>Do you provide warranties on your vehicles?</span>
+                    <i data-lucide="plus" class="accordion-icon"></i>
+                  </div>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Yes, we offer comprehensive warranties on all our
+                      vehicles. New vehicles come with manufacturer warranties,
+                      and our pre-owned vehicles include our dealer warranty
+                      covering major components for peace of mind.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div
+                    class="accordion-trigger"
+                    onclick="toggleAccordion(this)"
+                  >
+                    <span>What maintenance services do you offer?</span>
+                    <i data-lucide="plus" class="accordion-icon"></i>
+                  </div>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Our certified technicians provide full automotive
+                      maintenance including oil changes, brake service, tire
+                      replacement, engine diagnostics, transmission service, and
+                      major repairs. We use quality parts and modern diagnostic
+                      equipment.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <div class="contact-card">
+              <h3>Send us a Message</h3>
+              <p>
+                Please fill out the form below and we'll get back to you
+                promptly
+              </p>
+              <form id="contactForm" method="post" class="contact-form" action="{% url 'messaging:home' %}">
+
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  {{ form.name }}
+                  {% for err in form.name.errors %}
+                    <div class="field-error">{{ err }}</div>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  {{ form.email }}
+                  {% for err in form.email.errors %}
+                    <div class="field-error">{{ err }}</div>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  {{ form.phone }}
+                  {% for err in form.phone.errors %}
+                    <div class="field-error">{{ err }}</div>
+                  {% endfor %}
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  {{ form.body }}
+                  {% for err in form.body.errors %}
+                    <div class="field-error">{{ err }}</div>
+                  {% endfor %}
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  {% include 'partial/footer.html' %}
+  </body>
+</html>

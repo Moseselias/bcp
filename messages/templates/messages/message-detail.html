@@ -1,0 +1,216 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Fasiku Adejare">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/favicon.png" type="image/x-icon">
+
+    <title>Message Details - BillCharlesltd.com</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/admin-styles.css">
+    
+    <link rel="stylesheet" href="{% static 'css/admin-styles.css' %}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar admin-navbar">
+      <div class="navbar-container">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <div class="navbar-logo admin-logo">
+            <img src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/BC-logo.png" alt="BillCharlesltd Logo" class="logo-icon" />
+            <span class="logo-text">BillCharlesltd</span>
+          </div>
+
+          <!-- Account Icon -->
+          <div class="navbar-account">
+            <a href="{% url 'accounts:logout' %}" class="account-btn admin-account-btn">
+              <i data-lucide="log-out" class="account-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main detail-main">
+      <div class="container">
+        <!-- Header -->
+        <div class="detail-header">
+          <a href="{% url 'messages:message_list' %}" class="back-btn" style="text-decoration: none; font-size: 13px;">
+            <i data-lucide="arrow-left" class="back-icon"></i>
+            Back to Messages
+          </a>
+          <div class="header-title">
+            <div class="header-icon">
+              <i data-lucide="message-square" class="title-icon"></i>
+            </div>
+            <h1 class="page-title">Message Details</h1>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <!-- Message Details -->
+          <div class="detail-main-content">
+            <!-- Message Info -->
+            <div class="detail-card">
+              <div class="detail-card-header">
+                <div class="message-info">
+                  <h2 class="sender-name">{{ message.name }}</h2>
+                  <p class="message-timestamp">Received on {{ message.submitted_at|date:"Y-m-d" }} at {{ message.submitted_at|date:"g:i A" }}</p>
+                </div>
+                <span class="message-status {% if message.status == 'new' %} new {% else %} read {% endif %}">{{ message.status }}</span>
+              </div>
+              <div class="detail-card-content">
+                <div class="contact-info">
+                  <div class="contact-item">
+                    <i data-lucide="mail" class="contact-icon"></i>
+                    <span>{{ message.email }}</span>
+                  </div>
+                  <div class="contact-item">
+                    <i data-lucide="phone" class="contact-icon"></i>
+                    <span>{{ message.phone }}</span>
+                  </div>
+                </div>
+                <style>
+                  .prewrap {
+                    white-space: pre-wrap;
+                  }
+                </style>
+                <div class="message-section">
+                  <h4 class="message-label">Message:</h4>
+                  <div class="message-content prewrap">
+                    <p>{{ message.body }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reply Section -->
+            <div class="detail-card">
+              <div class="detail-card-header">
+                <div class="reply-title">
+                  <i data-lucide="send" class="reply-icon"></i>
+                  <span>Send Reply</span>
+                </div>
+                <p class="reply-subtitle">
+                  Compose and send an email reply to the customer
+                </p>
+              </div>
+
+              <div class="detail-card-content">
+                {# Only show form if not deleted or already replied #}
+                {% if message.status != 'deleted' %}
+                  {% if message.status != 'replied' %}
+                    <form action="{% url 'messages:message_reply' message.pk %}" method="post" class="reply-form">
+                      {% csrf_token %}
+                      {{ form.non_field_errors }}
+
+                      <div class="form-group">
+                        <label for="id_reply_body" class="form-label">Your Reply</label>
+                        <textarea id="id_reply_body" name="reply_body" rows="8" class="reply-textarea" placeholder="Type your reply message here..."required>
+                          {{ form.reply_body.value|default_if_none:"" }}
+                        </textarea>
+                        {% for err in form.reply_body.errors %}
+                          <div class="field-error">{{ err }}</div>
+                        {% endfor %}
+                      </div>
+
+                      <button type="submit" class="reply-btn">
+                        <i data-lucide="send" class="reply-btn-icon"></i>
+                        Send Email
+                      </button>
+                    </form>
+                  {% else %}
+                    <div class="reply-archived">
+                      <h4>Reply Sent</h4>
+                      <br>
+                      <div class="reply-body">
+                        Reply: {{ message.reply_body|linebreaks }}
+                      </div>
+                      <br>
+                      <p class="reply-meta">
+                        Replied on {{ message.replied_at|date:"Y-m-d g:i A" }}
+                      </p>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions Sidebar -->
+          <div class="detail-sidebar">
+            <div class="sidebar-card">
+              <div class="sidebar-header">
+                <h3 class="sidebar-title">Actions</h3>
+                <p class="sidebar-subtitle">Manage this message</p>
+              </div>
+              <div class="sidebar-content">
+                <form action="{% url 'messages:message_delete' message.pk %}" method="post" onsubmit="return confirm('This will hide the message from the list, you can recover it later. Proceed?');">
+                  {% csrf_token %}
+                  <button class="delete-message-btn">
+                    <i data-lucide="trash-2" class="delete-icon"></i>Delete Message
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <div class="sidebar-header">
+                <h3 class="sidebar-title">Message Info</h3>
+              </div>
+              <div class="sidebar-content">
+                <div class="info-list">
+                  <div class="info-item">
+                    <span class="info-label">ID:</span>
+                    <span class="info-value">#{{ message.id }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Status:</span>
+                    <span class="info-value">{{ message.status }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Time:</span>
+                    <span class="info-value">{{ message.submitted_at|date:"g:i A" }}</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Date:</span>
+                    <span class="info-value">{{ message.submitted_at|date:"Y-m-d" }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <h3>BillCharlesltd.com</h3>
+        <p class="footer-subtitle" style="color: #fff;">
+          Professional Automotive Services: Import • Export • Sales • Maintenance — Driven by Trust, Defined by Excellence.
+        </p>
+        <p class="footer-copyright" style="color: #E8E8E8;">
+          © 2025 BillCharlesltd. All rights reserved. | This website represents the official online presence of Bill Charles Limited.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/lucide.js"></script>
+    <script src="{% static 'js/admin-script.js' %}"></script>
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/admin-script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
+

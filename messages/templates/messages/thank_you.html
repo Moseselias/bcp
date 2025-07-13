@@ -1,0 +1,82 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Fasiku Adejare">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/favicon.png" type="image/x-icon">
+
+    <title>Submisson Success - BillCharlesltd.com</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/admin-styles.css' %}">
+    <link rel="stylesheet" href="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/css/admin-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar admin-navbar">
+      <div class="navbar-container">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <div class="navbar-logo admin-logo">
+            <img src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/images/BC-logo.png" alt="BillCharlesltd Logo" class="logo-icon" />
+            <span class="logo-text">BillCharlesltd</span>
+          </div>
+
+          <!-- Account Icon -->
+          <div class="navbar-account">
+            <a href="{% url 'messaging:home' %}" class="account-btn admin-account-btn">
+              <!-- <i data-lucide="arrow-left" class="account-icon"></i> -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="account-icon lucide lucide-arrow-left-icon lucide-arrow-left">
+                <path d="m12 19-7-7 7-7"/>
+                <path d="M19 12H5"/>
+              </svg>
+              <!-- <img src="{% static 'icons/arrow-left.svg' %}" alt="Back" class="account-icon icon arrow-icon" /> -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <ul id="django-messages" style="display:none;">
+      {% for msg in messages %}
+        <li class="django-message" data-level="{{ msg.tags }}">
+          {{ msg }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Thank You Section! -->
+    <section class="about" style="margin-top: 50px; margin-bottom: 150px;">
+      <div class="container" style="margin-top: 40px; padding-left: 30px; padding-right: 30px;">
+        <h2>Thanks for getting in touch!</h2>
+        <div class="about-text" style="margin-top: 20px;">
+          <p>We’ve received your message and are excited to connect. A member of our team will be reaching out shortly — we’re looking forward to learning more about your needs and how we can be of help.</p>
+          <a class="btn btn-primary" style="background-color: rgba(245, 118, 26, 0.93); margin-top: 30px;" href="{% url 'messaging:home' %}" style="margin-top:20px;">
+            Go to Homepage
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <h3>BillCharlesltd.com</h3>
+        <p class="footer-subtitle" style="color: #fff;">Professional Automotive Services: Import • Export • Sales • Maintenance — Driven by Trust, Defined by Excellence.</p>
+        <p class="footer-copyright" style="color: #E8E8E8;">© 2025 BillCharlesltd. All rights reserved. | This website represents the official online presence of Bill Charles Limited.</p>
+      </div>
+    </footer>
+
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/lucide.js"></script>
+    <script src="https://f005.backblazeb2.com/file/BillCharlesLtd/bclstatic/js/admin-script.js"></script>
+    <script src="{% static 'js/lucide.js' %}"></script>
+    <script src="{% static 'js/admin-script.js' %}"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
